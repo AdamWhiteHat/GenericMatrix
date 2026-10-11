@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net45;net46;net48;netstandard2.1;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Title>ExtendedArithmetic.GenericMatrix</Title>
+		<Product>ExtendedArithmetic.GenericMatrix</Product>
+		<AssemblyName>ExtendedArithmetic.GenericMatrix</AssemblyName>
+		<AssemblyTitle>ExtendedArithmetic.GenericMatrix</AssemblyTitle>
+		<PackageId>ExtendedArithmetic.GenericMatrix</PackageId>
+		<Description>A generic Matrix numeric type. Supports: Scalar arithmetic, vector arithmetic, square root, dot product, normal, reflection, distance, lerp, sum of squares and cosine similarity.</Description>
+		<Authors>Adam White</Authors>
+		<Company>Adam White</Company>
+		<Copyright>Made by Adam White</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>generic math maths mathematics matrix matrices scalar vector dot-product normal distance lerp arithmetic numeric numerics numbers type types arbitrary csharp</PackageTags>
+		<PackageProjectUrl>https://www.nuget.org/packages/ExtendedArithmetic.GenericMatrix</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AdamWhiteHat/GenericMatrix</RepositoryUrl>
+		<PackageIcon>matrix.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<MajorVersion Condition=" '$(MajorVersion)' == '' ">3000</MajorVersion>
+		<MinorVersion Condition=" '$(MinorVersion)' == '' ">0</MinorVersion>
+		<PatchVersion Condition=" '$(PatchVersion)' == '' ">0</PatchVersion>
+
+		<BuildTimestamp>$([System.DateTime]::Now.DayOfYear.ToString().PadLeft(3,'0'))</BuildTimestamp>
+
+		<Version>$(MajorVersion).$(MinorVersion).$(PatchVersion)</Version>
+		<AssemblyVersion>$(Version).$(BuildTimestamp)</AssemblyVersion>
+		<PackageVersion>$(AssemblyVersion)</PackageVersion>
+	</PropertyGroup>
+	
+	<ItemGroup>
+	  <None Remove="matrix.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="matrix.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ExtendedArithmetic.GenericArithmetic" Version="3000.2.0.73" />
+		<PackageReference Include="ExtendedArithmetic.GenericVector" Version="3000.0.0.283" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	</ItemGroup>
+
+</Project>
